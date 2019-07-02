@@ -2,4 +2,6 @@
 <project>
     <class name="com.company.teziscontrolwork.entity.Car"
            numeratorPrefix="CR"/>
+    <class name="com.company.teziscontrolwork.entity.OrderBuyCar"
+           numeratorPrefix="OBC"/>
 </project>

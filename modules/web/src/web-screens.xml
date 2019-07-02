@@ -13,4 +13,12 @@
             template="com/company/teziscontrolwork/web/car/car-edit.xml"/>
     <screen id="teziscontrolwork$Car.lookup"
             template="com/company/teziscontrolwork/web/car/car-browse.xml"/>
+    <screen id="teziscontrolwork$OrderBuyCar.templateBrowse"
+            template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-template-browse.xml"/>
+    <screen id="teziscontrolwork$OrderBuyCar.edit"
+            template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-edit.xml"/>
+    <screen id="teziscontrolwork$OrderBuyCar.lookup"
+            template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-browse.xml"/>
+    <screen id="teziscontrolwork$OrderBuyCar.browse"
+            template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-browse.xml"/>
 </screen-config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<filter code="Doc.SysFilter.ByDocumentKind"
+        filterComponent="[teziscontrolwork$OrderBuyCar.lookup].genericFilter"
+        name="">
+    <and>
+        <c caption="msg://docKind"
+           class="com.haulmont.thesis.core.entity.DocKind"
+           entityAlias="d"
+           join="join d.docKind dk"
+           name="docKind"
+           paramWhere="{E}.docType.name = &apos;teziscontrolwork$OrderBuyCar&apos;"
+           type="CUSTOM">dk.id = :component$genericFilter.docKind51034
+            <param name="component$genericFilter.docKind51034">NULL</param>
+        </c>
+    </and>
+</filter>

@@ -10,6 +10,7 @@
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.teziscontrolwork.entity.CarBrand</class>
         <class>com.company.teziscontrolwork.entity.Car</class>
+        <class>com.company.teziscontrolwork.entity.OrderBuyCar</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
 </persistence>
