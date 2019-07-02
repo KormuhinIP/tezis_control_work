@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.teziscontrolwork.web.carbrand.CarBrandBrowse"
+        lookupComponent="carBrandTable"
+        messagesPack="com.company.teziscontrolwork.web.carbrand">
+    <dsContext>
+        <collectionDatasource id="carBrandDs"
+                              class="com.company.teziscontrolwork.entity.CarBrand"
+                              view="carBrand-browse">
+            <query>
+                <![CDATA[select e from teziscontrolwork$CarBrand e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="carBrandTable"
+            spacing="true">
+        <filter id="genericFilter"
+                applyTo="carBrandTable"
+                datasource="carBrandDs"
+                stylename="edit-area">
+            <properties include=".*"/>
+        </filter>
+        <table id="carBrandTable"
+               multiselect="true"
+               presentations="true"
+               width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="note"/>
+                <column id="code"/>
+                <column id="name"/>
+            </columns>
+            <rows datasource="carBrandDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="carBrandTable.create"/>
+                <button id="editBtn"
+                        action="carBrandTable.edit"/>
+                <button id="removeBtn"
+                        action="carBrandTable.remove"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>

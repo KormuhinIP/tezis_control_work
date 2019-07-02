@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
-
+    <view class="com.company.teziscontrolwork.entity.CarBrand"
+          extends="_local"
+          name="carBrand-browse"/>
+    <view class="com.company.teziscontrolwork.entity.CarBrand"
+          extends="_local"
+          name="carBrand-edit"/>
 </views>

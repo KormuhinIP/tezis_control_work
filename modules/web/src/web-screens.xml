@@ -1,5 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
-
     <include file="/screens.xml"/>
-
+    <screen id="teziscontrolwork$CarBrand.edit"
+            template="com/company/teziscontrolwork/web/carbrand/carbrand-edit.xml"/>
+    <screen id="teziscontrolwork$CarBrand.lookup"
+            template="com/company/teziscontrolwork/web/carbrand/carbrand-browse.xml"/>
+    <screen id="teziscontrolwork$CarBrand.browse"
+            template="com/company/teziscontrolwork/web/carbrand/carbrand-browse.xml"/>
 </screen-config>
