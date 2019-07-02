@@ -8,6 +8,7 @@ allprojects {
     ext.classComment = '''/**
  * @author ${USER}
  */'''
+    ext.vcs = 'Git'
     
 }
 
