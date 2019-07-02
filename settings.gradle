@@ -1,0 +1,9 @@
+rootProject.name = 'tezis_control_work'
+include(':teziscontrolwork-global', ':teziscontrolwork-core', ':teziscontrolwork-gui', ':teziscontrolwork-web', ':teziscontrolwork-portal', ':teziscontrolwork-mobile', ':teziscontrolwork-mobile-rest')
+project(':teziscontrolwork-global').projectDir = new File(settingsDir, 'modules/global')
+project(':teziscontrolwork-core').projectDir = new File(settingsDir, 'modules/core')
+project(':teziscontrolwork-gui').projectDir = new File(settingsDir, 'modules/gui')
+project(':teziscontrolwork-web').projectDir = new File(settingsDir, 'modules/web')
+project(':teziscontrolwork-portal').projectDir = new File(settingsDir, 'modules/portal')
+project(':teziscontrolwork-mobile').projectDir = new File(settingsDir, 'modules/mobile')
+project(':teziscontrolwork-mobile-rest').projectDir = new File(settingsDir, 'modules/mobile-rest')
