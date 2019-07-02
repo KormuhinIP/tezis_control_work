@@ -9,6 +9,7 @@
     <persistence-unit name="tezis_control_work"
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.teziscontrolwork.entity.CarBrand</class>
+        <class>com.company.teziscontrolwork.entity.Car</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
     </persistence-unit>
 </persistence>

@@ -7,4 +7,10 @@
             template="com/company/teziscontrolwork/web/carbrand/carbrand-browse.xml"/>
     <screen id="teziscontrolwork$CarBrand.browse"
             template="com/company/teziscontrolwork/web/carbrand/carbrand-browse.xml"/>
+    <screen id="teziscontrolwork$Car.browse"
+            template="com/company/teziscontrolwork/web/car/car-browse.xml"/>
+    <screen id="teziscontrolwork$Car.edit"
+            template="com/company/teziscontrolwork/web/car/car-edit.xml"/>
+    <screen id="teziscontrolwork$Car.lookup"
+            template="com/company/teziscontrolwork/web/car/car-browse.xml"/>
 </screen-config>
