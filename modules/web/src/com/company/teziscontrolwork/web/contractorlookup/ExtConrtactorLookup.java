@@ -31,29 +31,23 @@ public class ExtConrtactorLookup extends ConrtactorLookup {
     private boolean individualTableInited = false;
     @Inject
     private ComponentsFactory componentsFactory;
-
-
     @Inject
     private GetAmountOrderService getAmountOrderService;
 
 
     @Override
     public void init(Map<String, Object> params) {
-
         super.init(params);
         changeTable(companyTable);
-        
+
         tabsheet.addListener(new TabSheet.TabChangeListener() {
             public void tabChanged(TabSheet.Tab newTab) {
                 setLookupComponent(getComponent("companyTab".equals(newTab.getName()) ? "companyTable" : "individualTable"));
-
                 if (!individualTableInited && "individualTab".equals(newTab.getName())) {
                     Component individualTablePanel = getComponent("individualTablePanel");
                     Table individualTable = getComponent("individualTable");
                     ComponentsHelper.createActions(individualTable);
-
                     individualTableInited = true;
-
                     if (individualTable != null && individualTablePanel != null) {
                         WebButtonsPanel buttonsPanel = new WebButtonsPanel();
                         individualTablePanel.setParent(null);
@@ -61,11 +55,8 @@ public class ExtConrtactorLookup extends ConrtactorLookup {
                         individualTable.setButtonsPanel(buttonsPanel);
                         individualTable.setRowsCount(individualTable.getRowsCount());
                     }
-
                     changeTable(individualTable);
                 }
-
-
             }
         });
 
@@ -77,23 +68,16 @@ public class ExtConrtactorLookup extends ConrtactorLookup {
             companyTable.setButtonsPanel(buttonsPanel);
             companyTable.setRowsCount(companyTable.getRowsCount());
         }
-
-
     }
 
     private void changeTable(Table table) {
-
-
         table.addGeneratedColumn("amount", new Table.ColumnGenerator() {
             @Override
             public Component generateCell(Entity entity) {
                 return generateAmountOrder(entity);
             }
         });
-
-
     }
-
 
     private Component generateAmountOrder(Object entity) {
         Label label = componentsFactory.createComponent(Label.class);
