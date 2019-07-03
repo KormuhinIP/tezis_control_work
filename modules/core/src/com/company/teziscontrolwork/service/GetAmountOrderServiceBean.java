@@ -27,7 +27,7 @@ public class GetAmountOrderServiceBean implements GetAmountOrderService {
 
         EntityManager em = persistence.getEntityManager();
 
-        Query query = em.createQuery("select COUNT (o) from tezistest$ApplicationForCarPurchase o where o.contractor.id =: contractor");
+        Query query = em.createQuery("select COUNT (o) from teziscontrolwork$OrderBuyCar o where o.contractor.id =: contractor");
         query.setParameter("contractor", entity);
         result = (long) query.getFirstResult();
 

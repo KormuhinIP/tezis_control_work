@@ -29,7 +29,6 @@ import java.util.Set;
  * @author kormuhin
  */
 @Listeners("thesis_DocEntityListener")
-@Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "CARD_ID", referencedColumnName = "CARD_ID")
 @DiscriminatorValue("1100")
 @Table(name = "TEZISCONTROLWORK_ORDER_BUY_CAR")

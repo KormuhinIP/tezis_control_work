@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.teziscontrolwork.web.contractorlookup.ExtConrtactorLookup"
+        extends="com/haulmont/thesis/web/ui/contractor/contractor-lookup.xml"
+        messagesPack="com.company.teziscontrolwork.web.contractorlookup">
+    <layout>
+        <tabSheet id="tabsheet"
+                  height="100%">
+            <tab id="companyTab">
+                <vbox id="vbox23"
+                      height="100%">
+                    <filter id="genericFilterCompany"/>
+                    <table id="companyTable">
+                        <columns>
+                            <column id="amount"
+                                    generator="generateAmountOrder"/>
+                        </columns>
+                    </table>
+                </vbox>
+            </tab>
+            <tab id="individualTab">
+                <vbox id="vbox36"
+                      height="100%">
+                    <filter id="genericFilterIndividual"/>
+                    <table id="individualTable">
+                        <columns>
+                            <column id="amount"
+                                    generator="generateAmountOrder"/>
+                        </columns>
+                    </table>
+                </vbox>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>

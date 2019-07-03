@@ -21,4 +21,6 @@
             template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-browse.xml"/>
     <screen id="teziscontrolwork$OrderBuyCar.browse"
             template="com/company/teziscontrolwork/web/orderbuycar/orderbuycar-browse.xml"/>
+    <screen id="df$Contractor.lookup"
+            template="com/company/teziscontrolwork/web/contractorlookup/ext-contractor-lookup.xml"/>
 </screen-config>
