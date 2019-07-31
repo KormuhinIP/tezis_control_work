@@ -17,6 +17,7 @@ import javax.inject.Inject;
 @Service(GetAmountOrderService.NAME)
 public class GetAmountOrderServiceBean implements GetAmountOrderService {
 
+
     @Inject
     private Persistence persistence;
 
@@ -24,6 +25,7 @@ public class GetAmountOrderServiceBean implements GetAmountOrderService {
     @Override
     public long getAmount(Object entity) {
         long result;
+
 
         EntityManager em = persistence.getEntityManager();
 
@@ -33,4 +35,7 @@ public class GetAmountOrderServiceBean implements GetAmountOrderService {
 
         return result;
     }
+
+
 }
+

@@ -28,7 +28,9 @@
                                 datasourceClass="com.haulmont.thesis.web.ui.common.attachments.ThesisAttachmentsDataSource"
                                 hierarchyProperty="versionOf"
                                 view="card-edit">
-            <query>select a from wf$CardAttachment a where a.card.id = :ds$cardDs order by a.createTs desc</query>
+            <query>
+                <![CDATA[select a from wf$CardAttachment a where a.card.id = :ds$cardDs order by a.createTs desc]]>
+            </query>
         </hierarchicalDatasource>
         <collectionDatasource id="cardRelationsDs"
                               class="com.haulmont.workflow.core.entity.CardRelation"
@@ -104,7 +106,6 @@
         <iframe id="templateFrame"
                 screen="docTemplateFrame"/>
         <split id="split"
-               height="100%"
                orientation="vertical"
                pos="70"
                width="100%">
@@ -113,17 +114,15 @@
                   height="100%"
                   width="100%">
                 <tabSheet id="tabsheet"
-                          height="100%"
-                          width="100%">
+                          height="100%">
                     <tab id="mainTab"
                          caption="msg://mainTab"
                          margin="true">
                         <groupBox id="docInfoGroupBox"
-                                  expand="infoScrollBox"
                                   height="100%"
-                                  stylename="edit-area"
-                                  width="100%">
+                                  stylename="edit-area">
                             <scrollBox id="infoScrollBox"
+                                       height="100%"
                                        scrollBars="both">
                                 <vbox id="infoVBox"
                                       width="AUTO">
@@ -151,7 +150,7 @@
                                                                editable="false"
                                                                property="docKind"
                                                                visible="false"
-                                                               width="${width}"/>
+                                                               width="200px"/>
                                                 </row>
                                                 <row>
                                                     <label id="docNumberLabel"
@@ -159,14 +158,14 @@
                                                     <textField id="docNumber"
                                                                datasource="cardDs"
                                                                property="number"
-                                                               width="${width}"/>
+                                                               width="200px"/>
                                                     <label id="dateLabel"
                                                            value="msg://date"/>
                                                     <dateField id="date"
                                                                datasource="cardDs"
                                                                property="date"
                                                                resolution="DAY"
-                                                               width="${width}"/>
+                                                               width="200px"/>
                                                 </row>
                                                 <row id="themeRow">
                                                     <label id="themeLabel"
@@ -184,7 +183,7 @@
                                                                        datasource="cardDs"
                                                                        optionsDatasource="organizationDs"
                                                                        property="organization"
-                                                                       width="${width}">
+                                                                       width="200px">
                                                         <actions>
                                                             <action id="open"/>
                                                         </actions>
@@ -195,7 +194,7 @@
                                                                        datasource="cardDs"
                                                                        optionsDatasource="departmentDs"
                                                                        property="department"
-                                                                       width="${width}"/>
+                                                                       width="200px"/>
                                                 </row>
                                                 <row>
                                                     <label id="parentCardLabel"
@@ -203,7 +202,7 @@
                                                     <pickerField id="parentCard"
                                                                  datasource="cardDs"
                                                                  property="parentCard"
-                                                                 width="${width}">
+                                                                 width="200px">
                                                         <actions>
                                                             <action id="open"/>
                                                             <action id="clear"/>
@@ -215,7 +214,7 @@
                                                                        datasource="cardDs"
                                                                        optionsDatasource="categoryDs"
                                                                        property="docCategory"
-                                                                       width="${width}">
+                                                                       width="200px">
                                                         <actions>
                                                             <action id="open"/>
                                                         </actions>
@@ -224,14 +223,13 @@
                                                 <row>
                                                     <label id="commentLabel"
                                                            value="msg://comment"
-                                                           width="${fieldCaptionWidth}"/>
+                                                           width="140px"/>
                                                     <textArea id="comment"
                                                               colspan="3"
                                                               datasource="cardDs"
                                                               property="comment"
                                                               resizable="true"
-                                                              rows="5"
-                                                              width="${commentWidth}"/>
+                                                              width="512px"/>
                                                 </row>
                                             </rows>
                                         </grid>
@@ -239,7 +237,7 @@
                                     <fieldGroup id="fieldGroup"
                                                 datasource="cardDs"
                                                 stylename="thesis-separator"
-                                                width="${bigFieldWidth}">
+                                                width="550px">
                                         <column fieldCaptionWidth="140"
                                                 width="250px">
                                             <field id="car"
@@ -248,9 +246,19 @@
                                                    optionsDatasource="contractorsDs"/>
                                             <field id="bank"
                                                    optionsDatasource="banksDs"/>
-                                            <field id="payment"/>
                                         </column>
                                     </fieldGroup>
+                                    <hbox align="MIDDLE_LEFT"
+                                          margin="true"
+                                          spacing="true">
+                                        <label id="paymentLabel"
+                                               align="MIDDLE_LEFT"
+                                               value="msg://payment"/>
+                                        <checkBox id="payment"
+                                                  align="MIDDLE_RIGHT"
+                                                  datasource="cardDs"
+                                                  property="payment"/>
+                                    </hbox>
                                     <grid id="signatureInfo">
                                         <columns count="4"/>
                                         <rows>
@@ -280,11 +288,11 @@
                                             </row>
                                         </rows>
                                     </grid>
-                                    <vbox height="AUTO"
-                                          margin="false,false,true,false"
+                                    <vbox margin="false,false,true,false"
                                           spacing="true"
                                           width="AUTO">
-                                        <scrollBox margin="true,false,true,false"
+                                        <scrollBox height="100px"
+                                                   margin="true,false,true,false"
                                                    scrollBars="both">
                                             <runtimeProperties id="runtimePropertiesFrameMain"
                                                                categoriesDs="categoriesDs"
@@ -294,19 +302,18 @@
                                         </scrollBox>
                                     </vbox>
                                     <grid id="attachmentInfo"
-                                          margin="true;false;false;false"
+                                          margin="true,false,false,false"
                                           spacing="true"
                                           stylename="thesis-separator"
                                           visible="false"
                                           width="550px">
                                         <columns>
-                                            <column flex="1"/>
+                                            <column flex="1.0"/>
                                         </columns>
                                         <rows>
                                             <row>
                                                 <vbox id="attachmentBox"
-                                                      height="100%">
-                                                </vbox>
+                                                      height="100%"/>
                                             </row>
                                         </rows>
                                     </grid>
@@ -315,57 +322,52 @@
                         </groupBox>
                     </tab>
                     <tab id="cardProjectsTab"
-                         caption="msg://cardProjectsTab"
-                         lazy="false">
+                         caption="msg://cardProjectsTab">
                         <iframe id="cardProjectsFrame"
                                 height="100%"
                                 screen="cardProjectsFrame"/>
                     </tab>
                     <tab id="attachmentsTab"
                          caption="msg://attachmentsTab"
-                         expand="cardAttachmentsFrame"
                          margin="true">
                         <iframe id="cardAttachmentsFrame"
+                                height="100%"
                                 screen="cardAttachmentsFrame"/>
                     </tab>
                     <tab id="processTab"
                          caption="msg://processTab"
-                         expand="cardProcFrame"
                          margin="true">
                         <iframe id="cardProcFrame"
+                                height="100%"
                                 screen="cardProcFrame"/>
                     </tab>
                     <tab id="office"
                          caption="msg://office"
-                         lazy="false"
                          margin="true">
                         <iframe id="docOfficeFrame"
                                 height="100%"
                                 screen="docOfficeFrame"/>
                     </tab>
                     <tab id="correspondenceHistoryTab"
-                         caption="msg://correspondenceHistoryTab"
-                         lazy="false">
+                         caption="msg://correspondenceHistoryTab">
                         <iframe id="correspondenceHistoryFrame"
                                 height="100%"
                                 screen="correspondenceHistoryFrame"/>
                     </tab>
                     <tab id="docTreeTab"
-                         caption="msg://cardTreeTab"
-                         expand="cardTreeFrame">
+                         caption="msg://cardTreeTab">
                         <iframe id="cardTreeFrame"
+                                height="100%"
                                 screen="cardTreeFrame"/>
                     </tab>
                     <tab id="docTransferLogTab"
-                         caption="msg://docTransferLogTab"
-                         lazy="false">
+                         caption="msg://docTransferLogTab">
                         <iframe id="docTransferLogFrame"
                                 height="100%"
                                 screen="docTransferLogFrame"/>
                     </tab>
                     <tab id="cardLinksTab"
                          caption="msg://cardLinksTab"
-                         lazy="false"
                          margin="true">
                         <iframe id="cardLinksFrame"
                                 height="100%"
@@ -386,7 +388,6 @@
                     </tab>
                     <tab id="openHistoryTab"
                          caption="msg://openHistoryTab"
-                         lazy="false"
                          margin="true">
                         <iframe id="openHistoryFrame"
                                 height="100%"
@@ -394,12 +395,9 @@
                     </tab>
                     <tab id="versionsTab"
                          caption="msg://versionsTab"
-                         lazy="false"
                          margin="true">
                         <table id="versionsTable"
-                               editable="false"
                                height="100%"
-                               sortable="true"
                                width="100%">
                             <columns>
                                 <column id="createTs"
@@ -431,35 +429,34 @@
                                    scrollBars="both">
                             <runtimeProperties id="runtimePropertiesFrameTab"
                                                categoriesDs="categoriesDs"
-                                               fieldWidth="${width}"
+                                               fieldWidth="200px"
                                                rows="${thesis_countOfColumnsForAdditionalFields}"
                                                runtimeDs="runtimePropsDs"/>
                         </scrollBox>
                     </tab>
                 </tabSheet>
                 <vbox height="100%"
-                      margin="false;false;false;true"
+                      margin="false,false,false,true"
                       spacing="true"
                       width="220px">
                     <scrollBox id="actionsFrameScroll"
                                height="100%"
-                               spacing="true"
-                               width="100%">
+                               spacing="true">
                         <vbox id="actionsPane"
                               margin="true,true,true,false"
                               stylename="edit-area"
-                              width="${rightPanelWidth}">
+                              width="200px">
                             <iframe id="actionsFrame"
                                     screen="actionsFrame"/>
                         </vbox>
                         <iframe id="startProcessButtonsFrame"
                                 screen="startProcessButtonsFrame"
-                                width="${rightPanelWidth}"/>
+                                width="200px"/>
                         <vbox id="otherActions"
                               margin="true,true,true,false"
                               spacing="true"
                               stylename="edit-area"
-                              width="${rightPanelWidth}">
+                              width="200px">
                             <popupButton id="createSubCardButton"
                                          caption="msg://actions.Create"
                                          width="100%"/>
@@ -477,8 +474,7 @@
             <vbox id="resolutionsPane"
                   expand="resolutionsFrame"
                   height="100%"
-                  spacing="true"
-                  width="100%">
+                  spacing="true">
                 <label value="msg://resolutions"/>
                 <iframe id="resolutionsFrame"
                         screen="resolutionsFrame"/>

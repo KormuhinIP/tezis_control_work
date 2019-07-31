@@ -42,7 +42,10 @@
           extends="_local"
           name="browse">
         <property name="car"
-                  view="_local"/>
+                  view="_local">
+            <property name="proc"
+                      view="_local"/>
+        </property>
         <property name="contractor"
                   view="_local"/>
         <property name="bank"

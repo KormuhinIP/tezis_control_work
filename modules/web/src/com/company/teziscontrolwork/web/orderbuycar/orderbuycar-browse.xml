@@ -16,17 +16,12 @@
     </dsContext>
     <layout expand="split"
             spacing="true">
-        <hbox height="AUTO"
-              spacing="true"
+        <hbox spacing="true"
               width="100%">
             <filter id="genericFilter"
                     applyTo="cardsTable"
                     datasource="cardsDs"
-                    manualApplyRequired="${thesis_docBrowser_filterManualApplyRequired}"
                     stylename="edit-area">
-                <properties
-                        exclude="procFamily|template|important|templateName|createdBy|createTs|regNo|jbpmProcessId|                                 id|locState|state|extraFields|currentActorsFullString|currentActorsString|addressees|executor|signedBy|category|                                 executor|versionOf|deleteTs|project"
-                        include=".*"/>
                 <custom caption="msg://Doc.project"
                         join="join d.projects p"
                         name="docProject"
@@ -82,50 +77,22 @@
                         paramClass="com.haulmont.thesis.core.entity.ContactPerson">d.docOfficeData.officeSignedBy.id in
                     (?)
                 </custom>
+                <properties
+                        exclude="procFamily|template|important|templateName|createdBy|createTs|regNo|jbpmProcessId|                                 id|locState|state|extraFields|currentActorsFullString|currentActorsString|addressees|executor|signedBy|category|                                 executor|versionOf|deleteTs|project"
+                        include=".*"/>
             </filter>
         </hbox>
         <split id="split"
-               height="100%"
                orientation="vertical"
                pos="60"
                width="100%">
             <vbox id="table-panel"
-                  expand="cardsTable"
                   height="100%"
                   spacing="true">
                 <groupTable id="cardsTable"
                             height="100%"
                             presentations="true"
                             width="100%">
-                    <buttonsPanel id="buttonsPanel">
-                        <popupButton id="createButton"
-                                     caption="msg://actions.Create"
-                                     icon=""/>
-                        <label stylename="thesis-buttonspanel-vertical-separator"/>
-                        <button id="editBtn"
-                                action="cardsTable.edit"
-                                icon="icons/edit.png"/>
-                        <button id="removeBtn"
-                                action="cardsTable.remove"
-                                icon="icons/remove.png"/>
-                        <button id="excel"
-                                action="cardsTable.excel"
-                                description="msg://actions.Excel"
-                                icon="icons/excel.png"/>
-                        <button id="refreshBtn"
-                                action="cardsTable.refresh"
-                                icon="icons/refresh.png"/>
-                        <button id="saveAsTemplateBtn"
-                                icon="icons/save_as_template.png"
-                                visible="false"/>
-                        <button id="createDocBtn"
-                                visible="false"/>
-                        <button id="expandBtn"
-                                action="cardsTable.expand"/>
-                        <runReportPopupButton id="printButton"
-                                              description="msg://print"
-                                              icon="icons/reports-print.png"/>
-                    </buttonsPanel>
                     <actions>
                         <action id="create"/>
                         <action id="edit"/>
@@ -137,8 +104,6 @@
                         <action id="showLink"/>
                         <action id="expand"/>
                     </actions>
-                    <tableSettings id="tableSettings"/>
-                    <rowsCount/>
                     <columns>
                         <column id="hasAttachments"
                                 caption="msg://com.haulmont.workflow.core.entity/Card.hasAttachments"
@@ -216,11 +181,40 @@
                         </column>
                     </columns>
                     <rows datasource="cardsDs"/>
+                    <rowsCount/>
+                    <tableSettings id="tableSettings"/>
+                    <buttonsPanel id="buttonsPanel">
+                        <popupButton id="createButton"
+                                     caption="msg://actions.Create"/>
+                        <label stylename="thesis-buttonspanel-vertical-separator"/>
+                        <button id="editBtn"
+                                action="cardsTable.edit"
+                                icon="icons/edit.png"/>
+                        <button id="removeBtn"
+                                action="cardsTable.remove"
+                                icon="icons/remove.png"/>
+                        <button id="excel"
+                                action="cardsTable.excel"
+                                description="msg://actions.Excel"
+                                icon="icons/excel.png"/>
+                        <button id="refreshBtn"
+                                action="cardsTable.refresh"
+                                icon="icons/refresh.png"/>
+                        <button id="saveAsTemplateBtn"
+                                icon="icons/save_as_template.png"
+                                visible="false"/>
+                        <button id="createDocBtn"
+                                visible="false"/>
+                        <button id="expandBtn"
+                                action="cardsTable.expand"/>
+                        <runReportPopupButton id="printButton"
+                                              description="msg://print"
+                                              icon="icons/reports-print.png"/>
+                    </buttonsPanel>
                 </groupTable>
             </vbox>
             <tabSheet id="cardDetailsTabSheet"
-                      height="100%"
-                      width="100%">
+                      height="100%">
                 <tab id="resolutionsTab"
                      caption="msg://resolutions">
                     <iframe id="resolutionsFrame"

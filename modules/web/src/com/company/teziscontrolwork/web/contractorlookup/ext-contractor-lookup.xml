@@ -12,7 +12,14 @@
                     <filter id="genericFilterCompany"/>
                     <table id="companyTable">
                         <columns>
+                            <column id="nonResident"
+                                    caption="msg://nonResident"/>
+                            <column id="supplier"
+                                    caption="msg://supplier"/>
+                            <column id="customer"
+                                    caption="msg://customer"/>
                             <column id="amount"
+                                    caption="msg://amount"
                                     generator="generateAmountOrder"/>
                         </columns>
                     </table>
@@ -25,6 +32,7 @@
                     <table id="individualTable">
                         <columns>
                             <column id="amount"
+                                    caption="msg://amount"
                                     generator="generateAmountOrder"/>
                         </columns>
                     </table>
